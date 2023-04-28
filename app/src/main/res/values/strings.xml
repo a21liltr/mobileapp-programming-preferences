@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Shared Preferences</string>
+    <string name="input">Tell me a secret...</string>
 </resources>

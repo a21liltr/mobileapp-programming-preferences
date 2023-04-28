@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="287dp"
+        android:layout_height="218dp"
+        android:hint="@string/input"
+        android:maxEms="20"
+        android:minEms="10"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click me"
+        app:layout_constraintEnd_toEndOf="@+id/et_input"
+        app:layout_constraintStart_toStartOf="@+id/et_input"
+        tools:layout_editor_absoluteY="447dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
