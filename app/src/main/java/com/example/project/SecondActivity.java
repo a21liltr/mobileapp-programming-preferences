@@ -12,9 +12,8 @@ import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
-    private final String key = "keyData";
+    private final String key = String.valueOf(R.string.keyData);
     private Button button;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,6 @@ public class SecondActivity extends AppCompatActivity {
         SharedPreferences.Editor sharedPrefDataEditor = sharedPreferences.edit();
         sharedPrefDataEditor.putString(key, data);
         sharedPrefDataEditor.apply();
-        //sharedPrefDataEditor.commit();
     }
 
 

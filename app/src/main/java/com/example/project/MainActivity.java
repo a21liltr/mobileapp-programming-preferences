@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private TextView sharedOutput;
-    private final String key = "keyData";
+    private final String key = String.valueOf(R.string.keyData);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("a21liltr", "resumed");
+        Log.d("a21liltr", "Main activity resumed");
         String defaultValue = "Nothing has been shared.";
         SharedPreferences sharedPref = getSharedPreferences(key, MODE_PRIVATE);
         sharedOutput.setText(sharedPref.getString(key, defaultValue));
