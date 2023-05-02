@@ -24,7 +24,7 @@ These elements are then also declared in their corresponding java classes.
 
 A string with the value "keyData" is put in Strings.xml to use as a key for the data that will be stored and retrieved later.
 
-In MainActivity.java, a method change() is created to launch Second activity on a buttonclick using onSetListener and onClick method.
+In MainActivity.java, a method change() is created to launch Second activity on a buttonclick using setOnClickListener and onClick method.
 
 In SecondActivity.java, a method called store() is created. The purpose of this method is to save the input in the edit view as a string and store it in the shared file between activities.
 
