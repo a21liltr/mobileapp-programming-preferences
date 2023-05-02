@@ -1,15 +1,21 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences myPreferenceRef;
-    private SharedPreferences.Editor myPreferenceEditor;
+    private Button button;
+    private TextView sharedOutput;
+    private final String key = "keyData";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,21 +24,28 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences myPreferenceRef = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor myPreferenceEditor = myPreferenceRef.edit();
+        button = findViewById(R.id.main_button_start_activity);
+        sharedOutput = findViewById(R.id.tv_output);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                change();
+            }
+        });
+    }
 
-        TextView prefTextRef = findViewById(R.id.tv_output);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("a21liltr", "resumed");
+        String defaultValue = "Nothing has been shared.";
+        SharedPreferences sharedPref = getSharedPreferences(key, MODE_PRIVATE);
+        sharedOutput.setText(sharedPref.getString(key, defaultValue));
+    }
 
-
-        // TODO: Launch SecondActivity
-
-        // TODO: get data from shared preferences
-
-        // SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        // int defaultValue = getResources().getInteger(R.integer.saved_high_score_default_key);
-        // int highScore = sharedPref.getInt(getString(R.string.saved_high_score_key), defaultValue);
-
+    public void change() {
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        startActivity(intent);
     }
 
 }

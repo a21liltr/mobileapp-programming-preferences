@@ -2,23 +2,46 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
+    private final String key = "keyData";
+    private Button button;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        // TODO: write data to shared preferences
-        // use SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(key, MODE_PRIVATE);
 
-        // write to shared preferences:
-        // SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        // SharedPreferences.Editor editor = sharedPref.edit();
-        // editor.putInt(getString(R.string.saved_high_score_key), newHighScore);
-        // editor.apply();
+        button = findViewById(R.id.second_button_save);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                store();
+                finish();
+            }
+        });
     }
+
+
+    void store() {
+        EditText input = findViewById(R.id.et_input);
+        String data = input.getText().toString();
+        SharedPreferences.Editor sharedPrefDataEditor = sharedPreferences.edit();
+        sharedPrefDataEditor.putString(key, data);
+        sharedPrefDataEditor.apply();
+        //sharedPrefDataEditor.commit();
+    }
+
+
 }
