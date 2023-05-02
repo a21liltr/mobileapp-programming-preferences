@@ -3,7 +3,7 @@
 
 **Assignment 6: Shared Preferences**
 
-The goal for this project is to pass data from one activity and have the data displayed in another activity using SharedPreferences.
+The goal here is to pass data from one activity and have the data displayed in another activity using SharedPreferences.
 
 To meet this goal, a new activity has to be created. For this project, the activity will simply be called Second activity.
 Both Main and Second activity are styled with required views in their corresponding layout xml files, that is:
